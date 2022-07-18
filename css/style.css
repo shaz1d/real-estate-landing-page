@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,500&family=Sen:wght@700&display=swap");
+
+:root {
+  /* Font Family */
+  --title-font: "Sen", sans-serif;
+  --base-font: "Poppins", sans-serif;
+
+  --font-sm: 0.8rem;
+  --font-md: 1.2rem;
+  --font-lg: 2rem;
+
+  --regular: 400;
+  --semi-bold: 500;
+  --bold: 600;
+
+  --pri-c: #1786fa;
+  --pri-light-c: #f5faff;
+  --dark-c: #020c16;
+  --light-c: #ffff;
+  --text-c: #4f565d;
+
+  --max: 1170px;
+  --mid: 744px;
+  --min: 320px;
+}
+
+/* CSS Reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+a {
+  text-decoration: none;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Base Styles */
+body {
+  font-family: var(--base-font);
+  width: 100vw;
+}
+._container {
+  max-width: var(--max);
+  width: 100%;
+  margin: 0 auto;
+}
+
+/*### Navbar ###*/
+nav {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+}
+
+._nav-logo {
+  font-family: var(--title-font);
+  color: var(--dark-c);
+  font-size: var(--font-sm);
+}
+._nav-logo h1 span {
+  color: var(--pri-c);
+}
+._nav-list {
+  flex-direction: column;
+  gap: 2rem;
+  position: absolute;
+  top: -100%;
+  display: none;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+  background-color: var(--pri-light-c);
+  padding: 20px 0;
+  transition: top 250ms ease;
+}
+._nav-list._active {
+  display: flex;
+  top: 60px;
+  opacity: 1;
+}
+._nav-item a {
+  color: var(--dark-c);
+}
+._nav-item._active a {
+  color: var(--pri-c);
+}
+
+._nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+._nav-menu a {
+  font-size: var(--font-sm);
+  font-weight: var(--semi-bold);
+  padding: 6px 12px;
+  background-color: var(--dark-c);
+  color: var(--light-c);
+}
+._nav-menu button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--dark-c);
+  height: 40px;
+  width: 40px;
+  z-index: 1000;
+}
+
+/* Tablet and above */
+
+@media screen and (min-width: 768px) {
+  :root {
+    --font-sm: 1rem;
+    --font-md: 1.2rem;
+    --font-lg: 2rem;
+  }
+  ._nav-list {
+    all: unset;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  ._nav-menu button {
+    display: none;
+  }
+}
