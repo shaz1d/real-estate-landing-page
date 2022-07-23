@@ -1,6 +1,7 @@
 const navMenuBtn = document.getElementById("_nav-menu-btn");
 const navList = document.getElementById("nav-list");
 const navItems = document.querySelectorAll("._nav-item");
+const rentBtns = document.querySelectorAll("._rent-btn");
 
 // Navmenu toggle
 navMenuBtn.addEventListener("click", () => {
@@ -13,9 +14,20 @@ window.addEventListener("click", (e) => {
   }
 });
 
-// Active link action
-function linkAction() {
-  navItems.forEach((el) => el.classList.remove("_active"));
-  this.classList.add("_active");
+// Active link action function
+function linkAction(linkItems, activeLink) {
+  linkItems.forEach((el) => el.classList.remove("_active"));
+  activeLink.classList.add("_active");
 }
-navItems.forEach((el) => el.addEventListener("click", linkAction));
+
+// Link action on Navbar
+navItems.forEach((el) => {
+  el.addEventListener("click", () => {
+    linkAction(navItems, el);
+  });
+});
+
+// Link action on Rent buttton
+rentBtns.forEach((el) =>
+  el.addEventListener("click", () => linkAction(rentBtns, el))
+);

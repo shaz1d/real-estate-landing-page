@@ -6,7 +6,7 @@
   --base-font: "Poppins", sans-serif;
 
   --font-sm: 0.8rem;
-  --font-md: 1.2rem;
+  --font-md: 1.1rem;
   --font-lg: 2rem;
 
   --regular: 400;
@@ -22,6 +22,8 @@
   --max: 1170px;
   --mid: 744px;
   --min: 320px;
+
+  --nav-height: 60px;
 }
 
 /* CSS Reset */
@@ -30,6 +32,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body,
@@ -58,6 +62,8 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  font-family: var(--base-font);
+  width: 100vw;
 }
 
 a:not([class]) {
@@ -81,20 +87,33 @@ select {
 }
 
 /* Base Styles */
-body {
-  font-family: var(--base-font);
-  width: 100vw;
-}
+
 ._container {
   max-width: var(--max);
   width: 100%;
   margin: 0 auto;
 }
+.p-10 {
+  padding: 10px;
+}
+.py-50 {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.px-10 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
 /*### Navbar ###*/
+header {
+  width: 100vw;
+  background-color: var(--pri-light-c);
+  position: fixed;
+}
 nav {
   width: 100%;
-  padding: 10px;
+  height: var(--nav-height);
   display: flex;
   position: relative;
   justify-content: space-between;
@@ -110,25 +129,26 @@ nav {
   color: var(--pri-c);
 }
 ._nav-list {
+  display: flex;
   flex-direction: column;
   gap: 2rem;
   position: absolute;
   top: -100%;
-  display: none;
+  opacity: 0;
   left: 0px;
   width: 100%;
   text-align: center;
   background-color: var(--pri-light-c);
   padding: 20px 0;
-  transition: top 250ms ease;
+  transition: all 200ms ease;
 }
 ._nav-list._active {
-  display: flex;
-  top: 60px;
+  top: 40px;
   opacity: 1;
 }
 ._nav-item a {
   color: var(--dark-c);
+  font-size: var(--font-sm);
 }
 ._nav-item._active a {
   color: var(--pri-c);
@@ -142,7 +162,7 @@ nav {
 ._nav-menu a {
   font-size: var(--font-sm);
   font-weight: var(--semi-bold);
-  padding: 6px 12px;
+  padding: 6px 20px;
   background-color: var(--dark-c);
   color: var(--light-c);
 }
@@ -156,14 +176,75 @@ nav {
   z-index: 1000;
 }
 
+/*### Hero Section ###*/
+section#hero {
+  background-color: var(--pri-light-c);
+  padding-top: var(--nav-height);
+}
+section .hero-section {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+._hero-context {
+  flex: 1;
+}
+._hero-context h1 {
+  font-size: var(--font-lg);
+  padding-right: 50px;
+  margin-bottom: 20px;
+}
+._search-form ul {
+  display: flex;
+  margin-top: 20px;
+}
+._search-form ul li {
+  padding: 5px 20px;
+  background-color: var(--light-c);
+  cursor: pointer;
+}
+._search-form ul li._active {
+  color: var(--pri-c);
+}
+/* Rent Filter */
+._filter-div {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  background-color: var(--light-c);
+}
+._filter-div select {
+  border: none;
+  outline: none;
+  padding: 10px;
+}
+._filter-div select:not(:last-child) {
+  border-bottom: 1px solid var(--pri-light-c);
+}
+._filter-div input[type="submit"] {
+  border: none;
+  outline: none;
+  background-color: var(--pri-c);
+  padding: 10px 30px;
+  color: var(--pri-light-c);
+}
+._hero-img {
+  flex: 1;
+  align-self: center;
+  position: relative;
+}
+
 /* Tablet and above */
 
 @media screen and (min-width: 768px) {
   :root {
-    --font-sm: 1rem;
+    --font-sm: 0.9rem;
     --font-md: 1.2rem;
     --font-lg: 2rem;
   }
+  /*### Navbar ###*/
   ._nav-list {
     all: unset;
     display: flex;
@@ -172,5 +253,18 @@ nav {
   }
   ._nav-menu button {
     display: none;
+  }
+
+  /*### Hero Section ###*/
+
+  section .hero-section {
+    flex-direction: row;
+  }
+
+  ._filter-div {
+    flex-direction: row;
+  }
+  ._filter-div select {
+    margin-right: 20px;
   }
 }

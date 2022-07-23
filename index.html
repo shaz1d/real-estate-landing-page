@@ -15,14 +15,14 @@
   <body>
     <!-- Navbar -->
     <header>
-      <nav class="_container">
+      <nav class="_container px-10">
         <a href="#" class="_nav-logo"
           ><h1>Lan<span>der</span></h1></a
         >
 
         <ul role="list" id="nav-list" class="_nav-list">
           <li class="_nav-item _active">
-            <a class="_nav-link" href="#">Home</a>
+            <a class="_nav-link" href="#hero">Home</a>
           </li>
           <li class="_nav-item">
             <a class="_nav-link" href="#">Properties</a>
@@ -38,6 +38,46 @@
         </div>
       </nav>
     </header>
+    <!-- Hero Area -->
+    <section id="hero">
+      <div class="_container hero-section px-10">
+        <div class="_hero-context">
+          <h1>The modern way to find your dream property</h1>
+          <p>
+            We’ll help you find a place you’ll love. Your dream home is here.
+            Start to finding your property with us. It’s easier and flexible.
+          </p>
+          <form action="" class="_search-form">
+            <ul role="list">
+              <li class="_active _rent-btn">Rent</li>
+              <li class="_rent-btn">Buy</li>
+            </ul>
+            <div class="_filter-div">
+              <select name="location" id="location">
+                <option value="Jessore">Jessore</option>
+
+                <option value="Khulna">Khulna</option>
+                <option value="Dhaka">Dhaka</option>
+              </select>
+              <select name="property" id="property">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+              </select>
+              <select name="price" id="price">
+                <option value="5000-10000">&#2547; 5000-10000</option>
+                <option value="11000-20000">&#2547; 11000-20000</option>
+                <option value="21000-30000">&#2547; 21000-30000</option>
+              </select>
+              <input type="submit" value="Search" />
+            </div>
+          </form>
+        </div>
+        <div class="_hero-img">
+          <img src="./assets/hero-img-1.png" alt="real state building" />
+        </div>
+      </div>
+    </section>
     <script type="module" src="js/main.js"></script>
   </body>
 </html>
